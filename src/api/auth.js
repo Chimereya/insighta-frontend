@@ -12,5 +12,5 @@ export const logout = () => {
 }
 
 export const getMe = () => {
-  return client.get('/api/me')
+  return client.get('/auth/whoami')
 }

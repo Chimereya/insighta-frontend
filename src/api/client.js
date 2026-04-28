@@ -23,8 +23,11 @@ client.interceptors.response.use(
   (response) => response,
   (error) => {
     const status = error.response?.status
+    const url = error.config?.url
 
-    if (status === 401) {
+    // Only redirect to login if 401 happens on a real API call
+    // not on the initial /auth/whoami session check
+    if (status === 401 && url !== '/auth/whoami') {
       window.location.href = '/login'
     }
 
