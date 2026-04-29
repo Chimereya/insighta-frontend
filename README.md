@@ -35,14 +35,7 @@ Note:*This diagram represents the full Insighta ecosystem. This repository handl
 
 #### The platform is split into three independent parts:
 
-GitHub OAuth
-↓
-FastAPI Backend (Python)
-↓ HTTP-only cookies
-Client
-
-    React Web Portal (this repo)
-    CLI
+GitHub OAuth -> FastAPI Backend (Python) -> Client:React Web Portal (this repo) and CLI
 
 
 
@@ -157,3 +150,10 @@ The portal runs at `http://localhost:5173`.
 - Axios with request/response interceptors
 - CSS Modules
 - GitHub OAuth via backend (PKCE flow)
+
+
+> **Note for admins:** All new users are assigned the `analyst` role by default. 
+> To test admin features, update the role directly in the database:
+> ```sql
+> UPDATE users SET role = 'admin' WHERE username = 'your-github-username';
+> ```
