@@ -15,7 +15,6 @@
   font-size: 1.75rem;
   font-weight: 600;
   color: #f1f1f3;
-  font-family: 'Georgia', serif;
   letter-spacing: -0.02em;
   margin-bottom: 0.35rem;
 }
@@ -27,7 +26,6 @@
 .subtitle {
   color: #6b7280;
   font-size: 0.875rem;
-  font-family: 'Courier New', monospace;
 }
 
 .createBtn {
@@ -37,7 +35,6 @@
   border: none;
   border-radius: 8px;
   font-size: 0.875rem;
-  font-family: 'Courier New', monospace;
   cursor: pointer;
   white-space: nowrap;
   transition: opacity 0.15s ease, transform 0.1s ease;
@@ -82,7 +79,6 @@
 .cardLabel {
   font-size: 0.75rem;
   color: #6b7280;
-  font-family: 'Courier New', monospace;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin-bottom: 0.75rem;
@@ -92,7 +88,6 @@
   font-size: 2rem;
   font-weight: 700;
   color: #f1f1f3;
-  font-family: 'Georgia', serif;
   letter-spacing: -0.03em;
   margin-bottom: 0.35rem;
   text-transform: capitalize;
@@ -101,14 +96,12 @@
 .cardSub {
   font-size: 0.78rem;
   color: #4b5563;
-  font-family: 'Courier New', monospace;
 }
 
 /* ---- quick actions ---- */
 .sectionTitle {
   font-size: 0.75rem;
   color: #4b5563;
-  font-family: 'Courier New', monospace;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-bottom: 1rem;
@@ -140,14 +133,12 @@
   font-size: 0.95rem;
   font-weight: 600;
   color: #f1f1f3;
-  font-family: 'Georgia', serif;
   margin-bottom: 0.5rem;
 }
 
 .actionDesc {
   font-size: 0.8rem;
   color: #6b7280;
-  font-family: 'Courier New', monospace;
   line-height: 1.5;
   margin-bottom: 1rem;
 }

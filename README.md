@@ -4,7 +4,7 @@ A secure, role-based web interface for the Insighta Labs+ Profile Intelligence P
 
 ## Live URLs
 
-- **Web Portal:** coming soon
+- **Web Portal:** https://insighta-frontend-nu.vercel.app
 - **Backend API:** https://hng-stage-3-backend-git-feat-stage-3-chimereyas-projects.vercel.app
 
 ---

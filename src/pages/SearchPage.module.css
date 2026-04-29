@@ -15,14 +15,13 @@
   font-size: 1.5rem;
   font-weight: 600;
   color: #f1f1f3;
-  font-family: 'Georgia', serif;
+  ;
   letter-spacing: -0.02em;
 }
 
 .subtitle {
   font-size: 0.85rem;
   color: #6b7280;
-  font-family: 'Courier New', monospace;
 }
 
 .searchBox {
@@ -54,7 +53,6 @@
   outline: none;
   color: #f1f1f3;
   font-size: 0.95rem;
-  font-family: 'Courier New', monospace;
   padding: 0.9rem 0;
 }
 
@@ -68,7 +66,6 @@
   color: white;
   border: none;
   font-size: 0.875rem;
-  font-family: 'Courier New', monospace;
   cursor: pointer;
   transition: opacity 0.15s ease;
   white-space: nowrap;
@@ -94,7 +91,6 @@
 .suggestLabel {
   font-size: 0.75rem;
   color: #4b5563;
-  font-family: 'Courier New', monospace;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
@@ -112,7 +108,6 @@
   border-radius: 20px;
   color: #9ca3af;
   font-size: 0.8rem;
-  font-family: 'Courier New', monospace;
   cursor: pointer;
   transition: all 0.15s ease;
 }
@@ -127,7 +122,6 @@
 .resultCount {
   font-size: 0.85rem;
   color: #6b7280;
-  font-family: 'Courier New', monospace;
   margin-bottom: 1rem;
 }
 
@@ -156,7 +150,6 @@
   padding: 0.85rem 1rem;
   text-align: left;
   font-size: 0.72rem;
-  font-family: 'Courier New', monospace;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: #4b5563;
@@ -183,13 +176,11 @@
 .table td {
   padding: 0.85rem 1rem;
   color: #d1d5db;
-  font-family: 'Courier New', monospace;
   font-size: 0.85rem;
 }
 
 .nameCell {
   color: #f1f1f3 !important;
-  font-family: 'Georgia', serif !important;
   font-size: 0.9rem !important;
   text-transform: capitalize;
 }
@@ -233,7 +224,6 @@
   border-radius: 7px;
   color: #9ca3af;
   font-size: 0.82rem;
-  font-family: 'Courier New', monospace;
   cursor: pointer;
   transition: all 0.15s ease;
 }
@@ -251,13 +241,11 @@
 .pageInfo {
   font-size: 0.82rem;
   color: #6b7280;
-  font-family: 'Courier New', monospace;
 }
 
 .state {
   text-align: center;
   padding: 3rem;
-  font-family: 'Courier New', monospace;
   font-size: 0.875rem;
   color: #6b7280;
   background: #13131a;
