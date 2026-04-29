@@ -157,3 +157,4 @@ The portal runs at `http://localhost:5173`.
 > ```sql
 > UPDATE users SET role = 'admin' WHERE username = 'your-github-username';
 > ```
+
