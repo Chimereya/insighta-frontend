@@ -30,16 +30,21 @@ graph TD
     Web -->|REST + HttpOnly Cookies| API
 ```
 
-Note:_ This diagram represents the full Insighta ecosystem. This repository handles the Web portion of the architecture. I tried using mermaid.js to do this_
+Note:*This diagram represents the full Insighta ecosystem. This repository handles the Web portion of the architecture. I tried using [*mermaid editor*](https://mermaid.js.org) to do this*
 
 
-The platform is split into three independent parts:
+#### The platform is split into three independent parts:
 
 GitHub OAuth
 ↓
 FastAPI Backend (Python)
 ↓ HTTP-only cookies
-Client :React Web Portal (this repo) and CLI
+Client
+
+    React Web Portal (this repo)
+    CLI
+
+
 
 
 - The **backend** handles all auth, data, and business logic
