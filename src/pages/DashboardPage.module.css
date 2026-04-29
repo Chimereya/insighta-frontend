@@ -1,0 +1,158 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.greeting {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #f1f1f3;
+  font-family: 'Georgia', serif;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.35rem;
+}
+
+.name {
+  color: #6366f1;
+}
+
+.subtitle {
+  color: #6b7280;
+  font-size: 0.875rem;
+  font-family: 'Courier New', monospace;
+}
+
+.createBtn {
+  padding: 0.6rem 1.25rem;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-family: 'Courier New', monospace;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity 0.15s ease, transform 0.1s ease;
+}
+
+.createBtn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* ---- stat cards ---- */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background: #13131a;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+}
+
+.card:hover {
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.cardAccent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--accent);
+  opacity: 0.8;
+}
+
+.cardLabel {
+  font-size: 0.75rem;
+  color: #6b7280;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.75rem;
+}
+
+.cardValue {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #f1f1f3;
+  font-family: 'Georgia', serif;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.35rem;
+  text-transform: capitalize;
+}
+
+.cardSub {
+  font-size: 0.78rem;
+  color: #4b5563;
+  font-family: 'Courier New', monospace;
+}
+
+/* ---- quick actions ---- */
+.sectionTitle {
+  font-size: 0.75rem;
+  color: #4b5563;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.actionCard {
+  background: #13131a;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.2s ease, transform 0.15s ease;
+  position: relative;
+}
+
+.actionCard:hover {
+  border-color: rgba(99, 102, 241, 0.3);
+  transform: translateY(-2px);
+}
+
+.actionTitle {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #f1f1f3;
+  font-family: 'Georgia', serif;
+  margin-bottom: 0.5rem;
+}
+
+.actionDesc {
+  font-size: 0.8rem;
+  color: #6b7280;
+  font-family: 'Courier New', monospace;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.actionArrow {
+  font-size: 1rem;
+  color: #6366f1;
+}

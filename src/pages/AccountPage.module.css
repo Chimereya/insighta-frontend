@@ -1,0 +1,219 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 700px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #f1f1f3;
+  font-family: 'Georgia', serif;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-size: 0.85rem;
+  color: #6b7280;
+  font-family: 'Courier New', monospace;
+}
+
+.card {
+  background: #13131a;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  flex-shrink: 0;
+}
+
+.avatarFallback {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  font-family: 'Georgia', serif;
+  flex-shrink: 0;
+}
+
+.username {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #f1f1f3;
+  font-family: 'Georgia', serif;
+  margin-bottom: 0.25rem;
+}
+
+.email {
+  font-size: 0.82rem;
+  color: #6b7280;
+  font-family: 'Courier New', monospace;
+}
+
+.roleBadge {
+  margin-left: auto;
+  padding: 0.35rem 1rem;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.admin {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.analyst {
+  background: rgba(245, 158, 11, 0.1);
+  color: #f59e0b;
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+/* info grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+.infoItem {
+  padding: 1.25rem 2rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.infoLabel {
+  font-size: 0.72rem;
+  color: #4b5563;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.4rem;
+}
+
+.infoValue {
+  font-size: 0.95rem;
+  color: #f1f1f3;
+  font-family: 'Georgia', serif;
+  text-transform: capitalize;
+}
+
+.infoValueMono {
+  font-size: 0.8rem;
+  color: #9ca3af;
+  font-family: 'Courier New', monospace;
+  word-break: break-all;
+}
+
+.infoSub {
+  font-size: 0.75rem;
+  color: #4b5563;
+  font-family: 'Courier New', monospace;
+  margin-top: 0.25rem;
+}
+
+/* permissions */
+.sectionTitle {
+  font-size: 0.72rem;
+  color: #4b5563;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 1.25rem 2rem 0;
+}
+
+.permissions {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 1rem 2rem 1.5rem;
+}
+
+.permission {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.permission:last-child {
+  border-bottom: none;
+}
+
+.allowed {
+  color: #10b981;
+  font-size: 0.85rem;
+  width: 16px;
+  text-align: center;
+}
+
+.denied {
+  color: #374151;
+  font-size: 0.85rem;
+  width: 16px;
+  text-align: center;
+}
+
+.permLabel {
+  font-size: 0.85rem;
+  color: #9ca3af;
+  font-family: 'Courier New', monospace;
+}
+
+/* session */
+.sessionNote {
+  font-size: 0.82rem;
+  color: #6b7280;
+  font-family: 'Courier New', monospace;
+  line-height: 1.6;
+  padding: 1rem 2rem 0;
+}
+
+.logoutBtn {
+  margin: 1.25rem 2rem 1.5rem;
+  padding: 0.65rem 1.5rem;
+  background: transparent;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 8px;
+  color: #ef4444;
+  font-size: 0.875rem;
+  font-family: 'Courier New', monospace;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: block;
+}
+
+.logoutBtn:hover {
+  background: rgba(239, 68, 68, 0.08);
+  border-color: rgba(239, 68, 68, 0.5);
+}

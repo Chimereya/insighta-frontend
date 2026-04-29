@@ -1,0 +1,270 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 900px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #f1f1f3;
+  font-family: 'Georgia', serif;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-size: 0.85rem;
+  color: #6b7280;
+  font-family: 'Courier New', monospace;
+}
+
+.searchBox {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: #13131a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+}
+
+.searchBox:focus-within {
+  border-color: rgba(99, 102, 241, 0.4);
+}
+
+.searchIcon {
+  padding: 0 1rem;
+  color: #4b5563;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #f1f1f3;
+  font-size: 0.95rem;
+  font-family: 'Courier New', monospace;
+  padding: 0.9rem 0;
+}
+
+.input::placeholder {
+  color: #374151;
+}
+
+.searchBtn {
+  padding: 0.9rem 1.5rem;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+  border: none;
+  font-size: 0.875rem;
+  font-family: 'Courier New', monospace;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.searchBtn:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.searchBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* suggestions */
+.suggestions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.suggestLabel {
+  font-size: 0.75rem;
+  color: #4b5563;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.chip {
+  padding: 0.4rem 0.9rem;
+  background: #13131a;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  color: #9ca3af;
+  font-size: 0.8rem;
+  font-family: 'Courier New', monospace;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.chip:hover {
+  border-color: rgba(99, 102, 241, 0.3);
+  color: #818cf8;
+  background: rgba(99, 102, 241, 0.05);
+}
+
+/* results */
+.resultCount {
+  font-size: 0.85rem;
+  color: #6b7280;
+  font-family: 'Courier New', monospace;
+  margin-bottom: 1rem;
+}
+
+.queryText {
+  color: #818cf8;
+}
+
+.tableWrap {
+  overflow-x: auto;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.table thead tr {
+  background: #13131a;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.table th {
+  padding: 0.85rem 1rem;
+  text-align: left;
+  font-size: 0.72rem;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #4b5563;
+  font-weight: 500;
+}
+
+.table tbody tr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.row {
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.row:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.table td {
+  padding: 0.85rem 1rem;
+  color: #d1d5db;
+  font-family: 'Courier New', monospace;
+  font-size: 0.85rem;
+}
+
+.nameCell {
+  color: #f1f1f3 !important;
+  font-family: 'Georgia', serif !important;
+  font-size: 0.9rem !important;
+  text-transform: capitalize;
+}
+
+.badge {
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  text-transform: capitalize;
+}
+
+.male {
+  background: rgba(99, 102, 241, 0.12);
+  color: #818cf8;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+.female {
+  background: rgba(236, 72, 153, 0.12);
+  color: #f472b6;
+  border: 1px solid rgba(236, 72, 153, 0.2);
+}
+
+.code {
+  color: #4b5563;
+  font-size: 0.78rem;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.pageBtn {
+  padding: 0.5rem 1rem;
+  background: #13131a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 7px;
+  color: #9ca3af;
+  font-size: 0.82rem;
+  font-family: 'Courier New', monospace;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.pageBtn:hover:not(:disabled) {
+  border-color: rgba(99, 102, 241, 0.4);
+  color: #6366f1;
+}
+
+.pageBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.pageInfo {
+  font-size: 0.82rem;
+  color: #6b7280;
+  font-family: 'Courier New', monospace;
+}
+
+.state {
+  text-align: center;
+  padding: 3rem;
+  font-family: 'Courier New', monospace;
+  font-size: 0.875rem;
+  color: #6b7280;
+  background: #13131a;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.errorState {
+  color: #ef4444;
+}
