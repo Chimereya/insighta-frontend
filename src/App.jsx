@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { useAuth } from './context/AuthContext'
 
 import LoginPage from './pages/LoginPage'
+import Layout from './components/Layout'
 import DashboardPage from './pages/DashboardPage'
 import ProfilesPage from './pages/ProfilesPage'
 import ProfileDetailPage from './pages/ProfileDetailPage'
@@ -11,10 +12,20 @@ import AccountPage from './pages/AccountPage'
 function ProtectedRoute({ children }) {
   const { user, loading } = useAuth()
 
-  if (loading) return <div className="app-loading">Loading...</div>
+  if (loading) return <div style={{ 
+    minHeight: '100vh', 
+    display: 'flex', 
+    alignItems: 'center', 
+    justifyContent: 'center',
+    background: '#0a0a0f',
+    color: '#6b7280',
+    fontFamily: 'Courier New, monospace',
+    fontSize: '0.9rem'
+  }}>Loading...</div>
+
   if (!user) return <Navigate to="/login" replace />
 
-  return children
+  return <Layout>{children}</Layout>
 }
 
 export default function App() {
