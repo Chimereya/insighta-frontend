@@ -30,7 +30,7 @@ graph TD
     Web -->|REST + HttpOnly Cookies| API
 ```
 
-Note:*This diagram represents the full Insighta ecosystem. This repository handles the Web portion of the architecture. I tried using [*mermaid editor*](https://mermaid.js.org){:target="_blank" rel="noopener noreferrer"} to create this*
+Note:*This diagram represents the full Insighta ecosystem. This repository handles the Web portion of the architecture. I tried using <a href="https://mermaid.js.org" target="_blank" rel="noopener noreferrer">mermaid editor</a> to create this*
 
 
 #### The platform is split into three independent parts:
