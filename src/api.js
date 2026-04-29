@@ -4,9 +4,8 @@ import axios from 'axios';
  * Central API client for the entire frontend.
  */
 const API = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL || 'https://hng-stage-3-backend.vercel.app/api/',
-  
-  withCredentials: true, 
+  baseURL: 'https://hng-stage-3-backend.vercel.app', 
+  withCredentials: true,
 });
 
 
