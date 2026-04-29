@@ -1,5 +1,5 @@
 import { NavLink, useNavigate } from 'react-router-dom'
-import { useAuth } from '../context/AuthContext'
+import { useAuth } from '../context/useAuth'
 import { logout } from '../api/auth'
 import styles from './Navbar.module.css'
 
@@ -10,7 +10,7 @@ export default function Navbar() {
   const handleLogout = async () => {
     try {
       await logout()
-    } catch (e) {
+    } catch {    
       // proceed anyway
     }
     clearUser()

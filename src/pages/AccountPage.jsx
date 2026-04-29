@@ -1,4 +1,4 @@
-import { useAuth } from '../context/AuthContext'
+import { useAuth } from '../context/useAuth'
 import { logout } from '../api/auth'
 import { useNavigate } from 'react-router-dom'
 import styles from './AccountPage.module.css'

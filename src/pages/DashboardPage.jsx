@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useAuth } from '../context/AuthContext'
+import { useAuth } from '../context/useAuth'
 import { getProfiles } from '../api/profiles'
 import { useNavigate } from 'react-router-dom'
 import styles from './DashboardPage.module.css'

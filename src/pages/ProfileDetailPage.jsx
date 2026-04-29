@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { getProfile, deleteProfile } from '../api/profiles'
-import { useAuth } from '../context/AuthContext'
+import { useAuth } from '../context/useAuth'
 import styles from './ProfileDetailPage.module.css'
 
 export default function ProfileDetailPage() {
