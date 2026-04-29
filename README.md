@@ -28,6 +28,7 @@ graph TD
     API --> DB
     CLI -->|REST + Version Header| API
     Web -->|REST + HttpOnly Cookies| API
+```
 
 Note:_ This diagram represents the full Insighta ecosystem. This repository handles the Web portion of the architecture. I tried using mermaid.js to do this_
 
