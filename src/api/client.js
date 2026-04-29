@@ -10,11 +10,11 @@ const client = axios.create({
   },
 })
 
-// Attach X-API-Version: 1 to EVERY request for HNG Stage 3 compliance
 client.interceptors.request.use((config) => {
-  config.headers['X-API-Version'] = '1'
-  return config
-})
+
+  config.headers['X-API-Version'] = '1';
+  return config;
+});
 
 let isRefreshing = false
 let failedQueue = []
