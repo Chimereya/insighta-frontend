@@ -4,7 +4,7 @@ import { logout } from '../api/auth'
 import styles from './Navbar.module.css'
 
 export default function Navbar() {
-  const { user, clearUser } = useAuth()
+  const { user, isAdmin, clearUser } = useAuth()  // ← added isAdmin
   const navigate = useNavigate()
 
   const handleLogout = async () => {
@@ -50,6 +50,17 @@ export default function Navbar() {
         >
           Search
         </NavLink>
+        {/* Upload link – visible only to admin users */}
+        {isAdmin && (
+          <NavLink
+            to="/upload"
+            className={({ isActive }) =>
+              isActive ? `${styles.link} ${styles.active}` : styles.link
+            }
+          >
+            Upload CSV
+          </NavLink>
+        )}
         <NavLink
           to="/account"
           className={({ isActive }) =>
