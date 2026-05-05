@@ -10,16 +10,12 @@ const client = axios.create({
   },
 })
 
-// Attach X-API-Version: 1 to every /api/* request
 client.interceptors.request.use((config) => {
-  if (config.url?.startsWith('/api')) {
-    config.headers['X-API-Version'] = '1'
-  }
-  return config
-})
 
-// Track if we're already trying to refresh
-// to avoid multiple simultaneous refresh attempts
+  config.headers['X-API-Version'] = '1';
+  return config;
+});
+
 let isRefreshing = false
 let failedQueue = []
 
@@ -40,11 +36,10 @@ client.interceptors.response.use(
     const status = error.response?.status
     const url = error.config?.url
 
-    
-    const isAuthUrl = url === '/auth/whoami' || url === '/auth/refresh'
+    // Check if the failed request was an auth-related endpoint
+    const isAuthUrl = url.includes('/auth/whoami') || url.includes('/auth/refresh')
 
     if (status === 401 && !isAuthUrl && !error.config._retry) {
-      // If already refreshing, queue this request until refresh is done
       if (isRefreshing) {
         return new Promise((resolve, reject) => {
           failedQueue.push({ resolve, reject })
@@ -53,22 +48,16 @@ client.interceptors.response.use(
           .catch((err) => Promise.reject(err))
       }
 
-      // Marking this request so we don't retry it again
       error.config._retry = true
       isRefreshing = true
 
       try {
-        // Trying to get new tokens using the refresh token cookie
         await client.post('/auth/refresh')
-
-        // Refresh worked then we'll retry all queued requests
         processQueue(null)
-
-        // Retrying the original request
         return client(error.config)
       } catch (refreshError) {
-        // Refresh failed if session is fully expired
         processQueue(refreshError)
+        // Only redirect to login if the REFRESH itself fails
         window.location.href = '/login'
         return Promise.reject(refreshError)
       } finally {
@@ -76,6 +65,7 @@ client.interceptors.response.use(
       }
     }
 
+    // If whoami returns 401, just reject it so the UI can handle it (no loop)
     return Promise.reject(error)
   }
 )

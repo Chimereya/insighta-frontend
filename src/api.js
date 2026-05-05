@@ -2,22 +2,16 @@ import axios from 'axios';
 
 /**
  * Central API client for the entire frontend.
- * All HTTP requests to the backend go through here.
  */
 const API = axios.create({
-  baseURL: 'http://127.0.0.1:8000/api/',
+  baseURL: 'https://hng-stage-3-backend.vercel.app', 
+  withCredentials: true,
 });
 
-/**
- * Automatically attach JWT token (if exists)
- * to every outgoing request.
- */
-API.interceptors.request.use((config) => {
-  const token = localStorage.getItem('accessToken');
 
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
-  }
+API.interceptors.request.use((config) => {
+  config.headers['X-API-Version'] = '1';
+
 
   return config;
 });

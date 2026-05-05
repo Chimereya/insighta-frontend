@@ -7,32 +7,23 @@ import ProfilesPage from './pages/ProfilesPage'
 import ProfileDetailPage from './pages/ProfileDetailPage'
 import SearchPage from './pages/SearchPage'
 import AccountPage from './pages/AccountPage'
-import UploadPage from './pages/UploadPage'
 import { useAuth } from './context/useAuth'
 
-function ProtectedRoute({ children, requireAdmin = false }) {
-  const { user, loading, isAdmin } = useAuth()
+function ProtectedRoute({ children }) {
+  const { user, loading } = useAuth()
 
-  if (loading) return (
-    <div style={{ 
-      minHeight: '100vh', 
-      display: 'flex', 
-      alignItems: 'center', 
-      justifyContent: 'center',
-      background: '#0a0a0f',
-      color: '#6b7280',
-      fontFamily: 'Courier New, monospace',
-      fontSize: '0.9rem'
-    }}>
-      Loading...
-    </div>
-  )
+  if (loading) return <div style={{ 
+    minHeight: '100vh', 
+    display: 'flex', 
+    alignItems: 'center', 
+    justifyContent: 'center',
+    background: '#0a0a0f',
+    color: '#6b7280',
+    fontFamily: 'Courier New, monospace',
+    fontSize: '0.9rem'
+  }}>Loading...</div>
 
   if (!user) return <Navigate to="/login" replace />
-
-  if (requireAdmin && !isAdmin) {
-    return <Navigate to="/" replace />
-  }
 
   return <Layout>{children}</Layout>
 }
@@ -57,12 +48,6 @@ export default function App() {
         } />
         <Route path="/account" element={
           <ProtectedRoute><AccountPage /></ProtectedRoute>
-        } />
-
-        <Route path="/upload" element={
-          <ProtectedRoute requireAdmin>
-            <UploadPage />
-          </ProtectedRoute>
         } />
 
         <Route path="*" element={<Navigate to="/" replace />} />
