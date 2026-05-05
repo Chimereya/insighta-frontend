@@ -22,6 +22,15 @@ export const deleteProfile = (id) => {
   return client.delete(`/api/profiles/${id}`)
 }
 
+
+export const uploadProfiles = (file) => {
+  const formData = new FormData();
+  formData.append('file', file);
+  return client.post('/api/profiles/upload', formData, {
+    headers: { 'Content-Type': 'multipart/form-data' },
+  });
+};
+
 export const exportProfiles = (params = {}) => {
   return client.get('/api/profiles/export', {
     params: { format: 'csv', ...params },
