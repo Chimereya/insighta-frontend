@@ -1,11 +1,9 @@
 import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/useAuth';
 import { uploadProfiles } from '../api/profiles';
 import styles from './UploadPage.module.css';
 
 export default function UploadPage() {
-  const { isAdmin } = useAuth();
   const navigate = useNavigate();
   const fileInputRef = useRef(null);
 
@@ -13,12 +11,6 @@ export default function UploadPage() {
   const [uploading, setUploading] = useState(false);
   const [result, setResult] = useState(null);
   const [error, setError] = useState(null);
-
-  // Redirect non-admin users
-  if (!isAdmin) {
-    navigate('/');
-    return null;
-  }
 
   const handleFileChange = (e) => {
     const selected = e.target.files[0];
@@ -38,9 +30,8 @@ export default function UploadPage() {
     setError(null);
     setResult(null);
     try {
-      const data = await uploadProfiles(file);
-      setResult(data);
-      // Clear file input after success
+      const response = await uploadProfiles(file);
+      setResult(response.data);
       if (fileInputRef.current) fileInputRef.current.value = '';
       setFile(null);
     } catch (err) {
@@ -89,7 +80,6 @@ export default function UploadPage() {
           {error && <div className={styles.errorMsg}>{error}</div>}
         </div>
 
-        {/* Expected CSV format hint */}
         <div className={styles.formatHint}>
           <p className={styles.hintTitle}>Expected CSV columns:</p>
           <code className={styles.code}>
@@ -101,7 +91,6 @@ export default function UploadPage() {
         </div>
       </div>
 
-      {/* Upload result summary */}
       {result && (
         <div className={styles.resultCard}>
           <h3 className={styles.resultTitle}>Upload Summary</h3>
