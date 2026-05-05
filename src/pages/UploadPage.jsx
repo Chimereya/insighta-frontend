@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { uploadProfiles } from '../api/profiles';
 import styles from './UploadPage.module.css';
@@ -11,18 +11,45 @@ export default function UploadPage() {
   const [uploading, setUploading] = useState(false);
   const [result, setResult] = useState(null);
   const [error, setError] = useState(null);
+  const [isDragOver, setIsDragOver] = useState(false);
+
+  const validateAndSetFile = (selectedFile) => {
+    if (!selectedFile) return false;
+    if (!selectedFile.name.endsWith('.csv')) {
+      setError('Only .csv files are accepted');
+      return false;
+    }
+    setFile(selectedFile);
+    setError(null);
+    setResult(null);
+    return true;
+  };
 
   const handleFileChange = (e) => {
-    const selected = e.target.files[0];
-    if (selected && selected.name.endsWith('.csv')) {
-      setFile(selected);
-      setError(null);
-      setResult(null);
-    } else {
-      setFile(null);
-      setError('Please select a valid .csv file');
-    }
+    const selected = e.target.files?.[0];
+    validateAndSetFile(selected);
   };
+
+  const handleDragOver = useCallback((e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (!uploading) setIsDragOver(true);
+  }, [uploading]);
+
+  const handleDragLeave = useCallback((e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragOver(false);
+  }, []);
+
+  const handleDrop = useCallback((e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragOver(false);
+    if (uploading) return;
+    const droppedFile = e.dataTransfer.files?.[0];
+    if (droppedFile) validateAndSetFile(droppedFile);
+  }, [uploading]);
 
   const handleUpload = async () => {
     if (!file) return;
@@ -32,6 +59,7 @@ export default function UploadPage() {
     try {
       const response = await uploadProfiles(file);
       setResult(response.data);
+      // Clear file input after success
       if (fileInputRef.current) fileInputRef.current.value = '';
       setFile(null);
     } catch (err) {
@@ -39,6 +67,12 @@ export default function UploadPage() {
       setError(message);
     } finally {
       setUploading(false);
+    }
+  };
+
+  const openFilePicker = () => {
+    if (!uploading && fileInputRef.current) {
+      fileInputRef.current.click();
     }
   };
 
@@ -53,23 +87,48 @@ export default function UploadPage() {
       </div>
 
       <div className={styles.card}>
-        <div className={styles.uploadArea}>
+        {/* Drag & Drop Area */}
+        <div
+          className={`${styles.dropZone} ${isDragOver ? styles.dragOver : ''} ${uploading ? styles.disabled : ''}`}
+          onDragOver={handleDragOver}
+          onDragLeave={handleDragLeave}
+          onDrop={handleDrop}
+          onClick={openFilePicker}
+        >
           <input
             ref={fileInputRef}
             type="file"
             accept=".csv"
             onChange={handleFileChange}
-            className={styles.fileInput}
+            className={styles.hiddenInput}
             disabled={uploading}
           />
-          {file && (
-            <div className={styles.fileInfo}>
-              <span className={styles.fileName}>{file.name}</span>
-              <span className={styles.fileSize}>
-                ({(file.size / 1024).toFixed(1)} KB)
-              </span>
-            </div>
-          )}
+          <div className={styles.dropContent}>
+            <span className={styles.dropIcon}>📁</span>
+            {file ? (
+              <div className={styles.fileInfo}>
+                <span className={styles.fileName}>{file.name}</span>
+                <span className={styles.fileSize}>
+                  ({(file.size / 1024).toFixed(1)} KB)
+                </span>
+                <span className={styles.changeLink}>Click or drop to change</span>
+              </div>
+            ) : (
+              <>
+                <p className={styles.dropText}>
+                  Drag & drop a CSV file here
+                </p>
+                <p className={styles.dropSubtext}>
+                  or click to select file
+                </p>
+              </>
+            )}
+          </div>
+        </div>
+
+        {error && <div className={styles.errorMsg}>{error}</div>}
+
+        <div className={styles.uploadAction}>
           <button
             className={styles.uploadBtn}
             onClick={handleUpload}
@@ -77,7 +136,6 @@ export default function UploadPage() {
           >
             {uploading ? 'Uploading...' : 'Upload CSV'}
           </button>
-          {error && <div className={styles.errorMsg}>{error}</div>}
         </div>
 
         <div className={styles.formatHint}>
