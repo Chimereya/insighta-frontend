@@ -352,3 +352,128 @@
   margin: 0 2rem 1rem;
   text-align: center;
 }
+
+/* File input wrapper and label */
+.fileInputWrapper {
+  margin: 1.5rem 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.fileLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #1e1e2a;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  color: #d1d5db;
+  font-size: 0.875rem;
+  width: fit-content;
+  transition: background 0.15s ease;
+}
+
+.fileLabel:hover {
+  background: #2a2a35;
+}
+
+.fileLabel input {
+  display: none;
+}
+
+.selectedFile {
+  font-size: 0.85rem;
+  color: #9ca3af;
+  background: #0a0a0f;
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  display: inline-block;
+  width: fit-content;
+}
+
+/* Drop zone adjustments */
+.dropZone {
+  border: 2px dashed rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  margin: 1rem 2rem 1.5rem;
+  padding: 1.8rem;
+  text-align: center;
+  transition: all 0.2s ease;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.dropZone.dragOver {
+  border-color: #6366f1;
+  background: rgba(99, 102, 241, 0.05);
+  border-style: solid;
+}
+
+.dropZone.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.dropContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dropIcon {
+  font-size: 2rem;
+  opacity: 0.7;
+}
+
+.dropText {
+  color: #d1d5db;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.dropSubtext {
+  color: #6b7280;
+  font-size: 0.75rem;
+  margin: 0;
+}
+
+/* Error, upload button, etc. remain as before */
+.errorMsg {
+  margin: 0 2rem 1rem;
+  padding: 0.5rem;
+  background: rgba(239, 68, 68, 0.1);
+  border-radius: 6px;
+  color: #ef4444;
+  text-align: center;
+}
+
+.uploadAction {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.uploadBtn {
+  padding: 0.6rem 2rem;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+  min-width: 160px;
+}
+
+.uploadBtn:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.uploadBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+

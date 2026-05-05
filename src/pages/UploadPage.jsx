@@ -70,7 +70,7 @@ export default function UploadPage() {
     }
   };
 
-  const openFilePicker = () => {
+  const triggerFilePicker = () => {
     if (!uploading && fileInputRef.current) {
       fileInputRef.current.click();
     }
@@ -87,42 +87,36 @@ export default function UploadPage() {
       </div>
 
       <div className={styles.card}>
-        {/* Drag & Drop Area */}
+        {/* Visible file input – this ensures file selection, not folders */}
+        <div className={styles.fileInputWrapper}>
+          <label className={styles.fileLabel}>
+            <span>📂 Choose CSV file</span>
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept=".csv"
+              onChange={handleFileChange}
+              disabled={uploading}
+            />
+          </label>
+          {file && (
+            <div className={styles.selectedFile}>
+              Selected: {file.name} ({(file.size / 1024).toFixed(1)} KB)
+            </div>
+          )}
+        </div>
+
+        {/* Drag & Drop Area (optional, works alongside the file picker) */}
         <div
           className={`${styles.dropZone} ${isDragOver ? styles.dragOver : ''} ${uploading ? styles.disabled : ''}`}
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
           onDrop={handleDrop}
-          onClick={openFilePicker}
         >
-          <input
-            ref={fileInputRef}
-            type="file"
-            accept=".csv"
-            onChange={handleFileChange}
-            className={styles.hiddenInput}
-            disabled={uploading}
-          />
           <div className={styles.dropContent}>
             <span className={styles.dropIcon}>📁</span>
-            {file ? (
-              <div className={styles.fileInfo}>
-                <span className={styles.fileName}>{file.name}</span>
-                <span className={styles.fileSize}>
-                  ({(file.size / 1024).toFixed(1)} KB)
-                </span>
-                <span className={styles.changeLink}>Click or drop to change</span>
-              </div>
-            ) : (
-              <>
-                <p className={styles.dropText}>
-                  Drag & drop a CSV file here
-                </p>
-                <p className={styles.dropSubtext}>
-                  or click to select file
-                </p>
-              </>
-            )}
+            <p className={styles.dropText}>Drag & drop a CSV file here</p>
+            <p className={styles.dropSubtext}>or use the button above</p>
           </div>
         </div>
 
